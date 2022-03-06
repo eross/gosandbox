@@ -26,7 +26,7 @@ func main() {
 
 	// Read
 	var product Product
-	db.First(&product, 1)                 // find product with integer primary key
+	//db.First(&product, 1)                 // find product with integer primary key
 	db.First(&product, "code = ?", "D42") // find product with code D42
 
 	// Update - update product's price to 200
