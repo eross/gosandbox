@@ -7,7 +7,6 @@ import (
 
 type Product struct {
 	gorm.Model
-	Id    uint
 	Code  string
 	Price uint
 }
@@ -23,11 +22,11 @@ func main() {
 	db.AutoMigrate(&Product{})
 
 	// Create
-	db.Create(&Product{Id: 1, Code: "D42", Price: 100})
+	db.Create(&Product{Code: "D42", Price: 100})
 
 	// Read
 	var product Product
-	db.First(&product, 1)                 // find product with integer primary key
+	db.First(&product)                    // find product with integer primary key
 	db.First(&product, "code = ?", "D42") // find product with code D42
 
 	// Update - update product's price to 200
@@ -38,5 +37,5 @@ func main() {
 
 	// Delete - delete product
 	//db.First(&product, 1)
-	db.Delete(&product, "1")
+	db.Delete(&product, 1)
 }
