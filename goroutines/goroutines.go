@@ -8,7 +8,7 @@ import (
 func main() {
 	fmt.Println("goroutines")
 	go g1()
-	time.Sleep(1000000000000)
+	time.Sleep(2 * time.Second)
 }
 
 func g1() {
